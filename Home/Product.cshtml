@@ -1,0 +1,22 @@
+﻿@model List<Product>
+
+@{
+    ViewBag.Title = "Product";
+}
+
+<h2>Product</h2>
+
+<table>
+    <tr>
+        <th>Ürün Adı</th>
+        <th>Sepete Ekle</th>
+    </tr>
+    @foreach (Product item in Model)
+    {
+        <tr>
+            <td>@item.ProductName</td>
+            <td>@Html.ActionLink("Sepete Ekle", "SepeteEkle", "Home", new { id = item.ProductID }, null)</td>
+        </tr>
+    }
+
+</table>

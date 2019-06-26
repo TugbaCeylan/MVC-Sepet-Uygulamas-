@@ -1,0 +1,36 @@
+﻿@model List<SepetUrun>
+@{
+    ViewBag.Title = "SepeteEkle";
+}
+
+<h2>SepeteEkle</h2>
+
+<table>
+    <tr>
+        <th>Ürün Adı</th>
+        <th>Fiyatı</th>
+        <th>Miktarı</th>
+        <th>Tutar</th>
+    </tr>
+    @foreach (SepetUrun item in Model)
+    {
+        <tr>
+            <td>@item.Ad</td>
+            <td>@item.Fiyat</td>
+            <td>@item.Adet</td>
+            <td>@item.Tutar.ToString()</td>
+        </tr>
+    }
+
+</table>
+
+@if(Model != null)
+{
+    <div> Sepette Toplam: @Model.Sum(su => su.Adet) Adet ürün bulunmaktadır. <br /> Toplam Tutar: @Model.Sum(su => su.Tutar) </div>
+}
+else
+{
+    <span>Sepette hiç Ürün yok. Hemen Alışverişe başla. </span>
+}
+
+
